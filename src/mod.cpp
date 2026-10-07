@@ -158,29 +158,29 @@ const char* getMiscTextureSetName(int64_t value)
 
 struct BloReplacement
 {
-    const char* name;
     const char* original;
     const char* replacement;
 };
 
 const BloReplacement bloReplacements[] =
 {
-    {"zelda_game_image.blo", "/res/Layout/main2D/main2d/scrn/zelda_game_image.blo", "zelda_game_image.blo"},
-    {"zelda_game_image_button_info.blo", "/res/Layout/button/button/scrn/zelda_game_image_button_info.blo", "zelda_game_image_button_info.blo"},
-    {"zelda_file_select2.blo", "/res/Layout/saveres/saveres/scrn/zelda_file_select2.blo", "zelda_file_select2.blo"},
-    {"zelda_collect_soubi_do_icon_parts.blo", "/res/Layout/clctres/clctres/scrn/zelda_collect_soubi_do_icon_parts.blo", "zelda_collect_soubi_do_icon_parts.blo"},
-    {"zelda_collect_soubi_do_icon_parts.blo", "/res/Layout/fishres/fishres/scrn/zelda_collect_soubi_do_icon_parts.blo", "zelda_collect_soubi_do_icon_parts.blo"},
-    {"zelda_collect_soubi_do_icon_parts.blo", "/res/Layout/insectRes/insectRes/scrn/zelda_collect_soubi_do_icon_parts.blo", "zelda_collect_soubi_do_icon_parts.blo"},
-    {"zelda_collect_soubi_do_icon_parts.blo", "/res/Layout/letres/letres/scrn/zelda_collect_soubi_do_icon_parts.blo", "zelda_collect_soubi_do_icon_parts.blo"},
-    {"zelda_collect_soubi_do_icon_parts.blo", "/res/Layout/optres/optres/scrn/zelda_collect_soubi_do_icon_parts.blo", "zelda_collect_soubi_do_icon_parts.blo"},
-    {"zelda_collect_soubi_do_icon_parts.blo", "/res/Layout/skillres/skillres/scrn/zelda_collect_soubi_do_icon_parts.blo", "zelda_collect_soubi_do_icon_parts.blo"},
-    {"zelda_letter_select_base.blo", "/res/Layout/letres/letres/scrn/zelda_letter_select_base.blo", "zelda_letter_select_base.blo"},
-    {"tt_zelda_button_l_text.bti", "/res/Layout/letres/letres/scrn/tt_zelda_button_l_text.bti", "tt_zelda_button_l_text.bti"},
-    {"zelda_wolf_howl.blo", "/res/Layout/msgres05/msgres05/scrn/zelda_wolf_howl.blo", "zelda_wolf_howl.blo"},
-    {"zelda_dungeon_map_spot_button.blo", "/res/Layout/dmapres/dmapres/scrn/zelda_dungeon_map_spot_button.blo", "zelda_dungeon_map_spot_button.blo"},
-    {"zelda_map_screen_title.blo", "/res/Layout/fmapres/fmapres/scrn/zelda_map_screen_title.blo", "zelda_map_screen_title.blo"},
-    {"zelda_item_select_icon_message_ver2.blo", "/res/Layout/ringres/ringres/scrn/zelda_item_select_icon_message_ver2.blo", "zelda_item_select_icon_message_ver2.blo"},
-    {"zelda_file_select.blo", "/res/object/fileSel/fileSel/scrn/zelda_file_select.blo", "zelda_file_select.blo"}
+    {"/res/Layout/main2D/main2d/scrn/zelda_game_image.blo", "zelda_game_image.blo"},
+    {"/res/Layout/button/button/scrn/zelda_game_image_button_info.blo", "zelda_game_image_button_info.blo"},
+    {"/res/Layout/saveres/saveres/scrn/zelda_file_select2.blo", "zelda_file_select2.blo"},
+    {"/res/Layout/clctres/clctres/scrn/zelda_collect_soubi_do_icon_parts.blo", "zelda_collect_soubi_do_icon_parts.blo"},
+    {"/res/Layout/fishres/fishres/scrn/zelda_collect_soubi_do_icon_parts.blo", "zelda_collect_soubi_do_icon_parts.blo"},
+    {"/res/Layout/insectRes/insectRes/scrn/zelda_collect_soubi_do_icon_parts.blo", "zelda_collect_soubi_do_icon_parts.blo"},
+    {"/res/Layout/letres/letres/scrn/zelda_collect_soubi_do_icon_parts.blo", "zelda_collect_soubi_do_icon_parts.blo"},
+    {"/res/Layout/optres/optres/scrn/zelda_collect_soubi_do_icon_parts.blo", "zelda_collect_soubi_do_icon_parts.blo"},
+    {"/res/Layout/skillres/skillres/scrn/zelda_collect_soubi_do_icon_parts.blo", "zelda_collect_soubi_do_icon_parts.blo"},
+    {"/res/Layout/letres/letres/scrn/zelda_letter_select_base.blo", "zelda_letter_select_base.blo"},
+    {"/res/Layout/letres/letres/scrn/tt_zelda_button_l_text.bti", "tt_zelda_button_l_text.bti"},
+    {"/res/Layout/msgres05/msgres05/scrn/zelda_wolf_howl.blo", "zelda_wolf_howl.blo"},
+    {"/res/Layout/dmapres/dmapres/scrn/zelda_dungeon_map_spot_button.blo", "zelda_dungeon_map_spot_button.blo"},
+    {"/res/Layout/fmapres/fmapres/scrn/zelda_map_screen_title.blo", "zelda_map_screen_title.blo"},
+    {"/res/Layout/ringres/ringres/scrn/zelda_item_select_icon_message_ver2.blo", "zelda_item_select_icon_message_ver2.blo"},
+    {"/res/object/fileSel/fileSel/scrn/zelda_file_select.blo", "zelda_file_select.blo"},
+    {"/res/Layout/main2D/main2d/scrn/zelda_game_image_hakusha_a_btn.blo", "zelda_game_image_hakusha_a_btn.blo"}
 };
 
 const size_t bloReplacementCount = sizeof(bloReplacements) / sizeof(bloReplacements[0]);
@@ -287,7 +287,7 @@ ModResult fileReplace(const std::string& layout)
 
         if (result != MOD_OK)
         {
-            std::string message = "Failed to replace " + std::string(r.name);
+            std::string message = "Failed to replace " + std::string(r.replacement);
             svc_log->error(mod_ctx, message.c_str());
             removeOverlays();
             return result;
